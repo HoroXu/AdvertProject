@@ -5,11 +5,12 @@ import NoticeText from "@/component/NoticeText";
 import PieCharts from "@/component/PieCharts";
 import Recommend from "@/component/Recommend";
 import WheelPlanting from "@/component/WheelPlanting";
+import './index.less'
 
 const HomePage = () => {
   return (
     <div className="home-page-area">
-      <TopTitle />
+      {/* <TopTitle /> */}
       <div>
         <LineCharts />
       </div>
