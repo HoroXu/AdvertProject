@@ -11,15 +11,29 @@ const LineCharts = () => {
     var option = {
       title: {
         text: "阅览室使用情况",
-        textStyle:{
-          color:'rgba(50,207,255,1)',
-          fontSize:24
+        left: 10,
+        top: 10,
+        textStyle: {
+          color: "rgba(50,207,255,1)",
+          fontSize: 24
         }
       },
       color: ["#32CFFF", "#2f4554"],
       tooltip: {},
       legend: {
-        data: ["销量"]
+        data: ["已使用", "剩余"],
+        align: "right",
+        right: 10,
+        top: 10,
+        itemWidth: 14,
+        itemHeight: 14,
+        borderRadius: 14,
+        
+        icon: "circle",
+        textStyle: {
+          borderColor: "rgba(50,207,255,0.4)",
+          color: "rgba(50,207,255,1)"
+        }
       },
       xAxis: {
         data: [
@@ -83,40 +97,46 @@ const LineCharts = () => {
 
       series: [
         {
-          name: "剩余",
+          name: "已使用",
           type: "bar",
           stack: "总量",
           itemStyle: {
-            normal: { color: "#42F09D" },
-
-            borderColor: "rgba(66,240,157,1)",
-            borderWidth: 1,
-            // shadowOffsetX: "8px",
-            shadowColor: "rgba(148,255,204,1)",
-            shadowBlur: 10
+            normal: {
+              color: "#42F09D",
+              // barBorderRadius: [12, 12, 0, 0],
+              borderColor: "rgba(50,207,255,0.4)",
+              borderWidth: 1
+            }
           },
           label: {
             normal: {
-              // show: true,
-              position: "insideRight"
+              show: true,
+              position: [0, -15],
+              color:'rgba(50,207,255,1)'
             }
           },
           data: [320, 302, 301, 334, 390]
         },
         {
-          name: "已使用",
+          name: "剩余",
           type: "bar",
           stack: "总量",
           barWidth: 20,
           label: {
             normal: {
               show: true,
-              position: "insideTop"
+              position: [0, -15],
+              color:'rgba(50,207,255,1)'
             }
           },
 
           itemStyle: {
-            normal: { color: "rgba(50, 207, 255, 0.05)" }
+            normal: {
+              color: "rgba(50, 207, 255, 0.05)",
+              // barBorderRadius: [12, 12, 12, 12],
+              borderColor: "rgba(50,207,255,0.4)",
+              borderWidth: 1
+            }
           },
           data: [120, 132, 101, 134, 90]
         }

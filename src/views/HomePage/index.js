@@ -11,11 +11,10 @@ const HomePage = () => {
   return (
     <div className="home-page-area">
       {/* <TopTitle /> */}
-      <div>
+      <div className='top-area'>
         <LineCharts />
-      </div>
-      <div>
-        {/* <LineCharts /> */}
+    
+        <WheelPlanting/>
       </div>
     </div>
   );

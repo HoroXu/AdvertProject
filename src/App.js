@@ -4,6 +4,7 @@ import "./App.less";
 import { Link, Route, Switch, BrowserRouter } from "react-router-dom";
 import AxiosData from "@/utils/axios";
 import "./config/common.less";
+import {initFontSize} from './config/publicMethod'
 
 import RouteMap from "./Route";
 import { connect } from "react-redux";
@@ -20,9 +21,7 @@ export default class App extends Component {
     };
   }
   componentDidMount() {
-    this.setState({
-      defaultHeight: document.body.clientHeight
-    });
+    // initFontSize()
   }
   render() {
     console.log(this.state.defaultHeight, "默认高速-======");
