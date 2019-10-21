@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./index.less";
 import AwesomeSwiper from "react-awesome-swiper";
+import Img1 from "../../assets/images/timg.jpg";
+import Img2 from "../../assets/images/timg1.jpg";
+import Img3 from "../../assets/images/timg3.jpg";
 
 const config = {
   loop: true,
@@ -19,16 +22,22 @@ export default class WheelPlanting extends Component {
   render() {
     return (
       <div className="wheel-planting-area">
-        <div className='wheel-planting-title'>本馆风采</div>
+        <div className="wheel-planting-title">本馆风采</div>
         <AwesomeSwiper
           ref={ref => (this.swiperRef = ref)}
           config={config}
           className="wheel-planting-imgs"
         >
           <div className="swiper-wrapper">
-            <div className="swiper-slide">slider1</div>
-            <div className="swiper-slide">slider2</div>
-            <div className="swiper-slide">slider3</div>
+            <div className="swiper-slide">
+              <img src={Img1} />
+            </div>
+            <div className="swiper-slide">
+              <img src={Img2} />
+            </div>
+            <div className="swiper-slide">
+              <img src={Img3} />
+            </div>
           </div>
 
           {/* <div className="swiper-pagination"></div> */}

@@ -5,16 +5,22 @@ import NoticeText from "@/component/NoticeText";
 import PieCharts from "@/component/PieCharts";
 import Recommend from "@/component/Recommend";
 import WheelPlanting from "@/component/WheelPlanting";
-import './index.less'
+
+import "./index.less";
 
 const HomePage = () => {
   return (
     <div className="home-page-area">
       {/* <TopTitle /> */}
-      <div className='top-area'>
+      <div className="top-area">
         <LineCharts />
-    
-        <WheelPlanting/>
+
+        <WheelPlanting />
+        <NoticeText />
+      </div>
+      <div className="top-area">
+        <Recommend />
+        <PieCharts />
       </div>
     </div>
   );

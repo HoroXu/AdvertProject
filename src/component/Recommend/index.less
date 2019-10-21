@@ -1,0 +1,62 @@
+.recommend-area {
+  width: 33.125rem;
+  height: 28.25rem;
+  background: url(../../assets/images/line-chart-bg.png) no-repeat center;
+  background-size: 100% 100%;
+  position: relative;
+  .position-left {
+    position: absolute;
+    width: 10rem;
+    height: 24.375rem;
+    left: 0px;
+    top: 3.375rem;
+    background-color: aquamarine;
+    z-index: 9;
+  }
+  .position-right {
+    position: absolute;
+    right: 0.4375rem;
+    top: 3.375rem;
+    width: 11rem;
+    height: 24.375rem;
+    background-color: aquamarine;
+    z-index: 9;
+  }
+  .recommend-title {
+    height: 3.3125rem;
+    line-height: 3.3125rem;
+    padding-left: 1rem;
+    font-size: 24px;
+    color: rgba(50, 207, 255, 1);
+  }
+  .recommend-imgs {
+    // width: 44.25rem;
+    // height: 24.875rem;
+    // margin: 0 5.25rem;
+    margin: 0 1rem 1rem 1rem;
+
+    .swiper-wrapper {
+      width: 33.125rem;
+      height: 24.875rem;
+      display: flex;
+      align-items: center;
+      .swiper-slide {
+        width: 7.5rem;
+        height: 10rem;
+        img {
+          width: 7.5rem;
+          height: 10rem;
+        }
+      }
+
+      .swiper-slide-active {
+        width: 10rem;
+        height: 14.3125rem;
+        img {
+          width: 10rem;
+          height: 14.3125rem;
+        }
+      }
+    }
+  }
+}
