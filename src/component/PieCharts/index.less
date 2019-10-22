@@ -18,6 +18,11 @@
   .pie-charts-content {
     display: flex;
     justify-content: space-between;
+    margin-top: 2.75rem;
+    .num-content {
+      width: 22.5rem;
+      padding-left: 2rem;
+    }
     .num-title {
       font-size: 14px;
       font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
@@ -28,9 +33,10 @@
     .month-num-area {
       .month-num {
         display: flex;
+        justify-content: space-between;
         .single-num {
           width: 6.25rem;
-          margin-right: 40px;
+          //   margin-right: 40px;
           .num {
             text-align: center;
             font-size: 24px;
@@ -48,8 +54,29 @@
       }
     }
     .year-num-area {
-        margin-top: 2.5rem;
+      margin-top: 2.5rem;
+      margin-top: 1rem;
+      .year-num {
+        display: flex;
+        justify-content: space-between;
         margin-top: 1rem;
+        // padding-left: 1.5625rem;
+        .single-num {
+          width: 4.375rem;
+          text-align: center;
+        }
+        img {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+
+        .text {
+          margin-top: 0.625rem;
+          font-size: 14px;
+          font-family: MicrosoftYaHei;
+          color: rgba(50, 207, 255, 1);
+        }
+      }
     }
   }
 }

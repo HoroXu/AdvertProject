@@ -1,9 +1,9 @@
 import React, { Component, useState, useEffect } from "react";
 import echarts from "echarts";
 import "./index.less";
-import Language from '../../assets/images/language.png'
-import Rate from '../../assets/images/rate.png'
-import Book from '../../assets/images/book.png'
+import Language from "../../assets/images/language.png";
+import Rate from "../../assets/images/rate.png";
+import Book from "../../assets/images/book.png";
 
 const PieCharts = () => {
   useEffect(() => {
@@ -71,38 +71,51 @@ const PieCharts = () => {
           <div className="month-num-area">
             <div className="num-title">8月份文献传递量</div>
             <div className="month-num">
-              <div className='single-num'>
-                <div className='num'>128,713</div>
-                <div className='text'>总传递量</div>
+              <div className="single-num">
+                <div className="num">128,713</div>
+                <div className="text">总传递量</div>
               </div>
-              <div className='single-num'>
-                <div className='num'> 128,713</div>
-                <div className='text'>图书传递量</div>
+              <div className="single-num">
+                <div className="num"> 128,713</div>
+                <div className="text">图书传递量</div>
               </div>
 
-              <div className='single-num'>
-                <div className='num'> 128,713</div>
-                <div className='text'>其他文献传递量</div>
+              <div className="single-num">
+                <div className="num"> 128,713</div>
+                <div className="text">其他文献传递量</div>
               </div>
             </div>
           </div>
 
           <div className="year-num-area">
             <div className="num-title">本年文献传递量</div>
-            <div className="month-num">
-              <div className='single-num'>
-                <img src={Language}/>
-                <div className='text'>语言</div>
+            <div className="year-num">
+              <div className="single-num">
+                <img src={Language} />
+                <div className="text">语言</div>
               </div>
-              <div className='single-num'>
-              <img src={Book}/>
-                <div className='text'>期刊传递量</div>
+              <div className="single-num">
+                <img src={Book} />
+                <div className="text">期刊传递量</div>
               </div>
 
-              <div className='single-num'>
-              <img src={Rate}/>
-                <div className='text'>成功率</div>
+              <div className="single-num">
+                <img src={Rate} />
+                <div className="text">成功率</div>
               </div>
+            </div>
+          </div>
+
+          <div className="table-num">
+            <div>
+              <span>中文</span>
+              <span>9631</span>
+              <span>96%</span>
+            </div>
+            <div>
+              <span>中文</span>
+              <span>9631</span>
+              <span>96%</span>
             </div>
           </div>
         </div>
