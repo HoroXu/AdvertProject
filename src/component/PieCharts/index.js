@@ -18,7 +18,7 @@ const PieCharts = () => {
       },
       legend: {
         orient: "horizontal",
-        bottom: 0,
+        bottom: 15,
         data: ["图书", "期刊", "会员论文", "学位论文", "专利"],
         itemWidth: 14,
         itemHeight: 14,
@@ -29,7 +29,8 @@ const PieCharts = () => {
         {
           name: "访问来源",
           type: "pie",
-          radius: ["60%", "70%"],
+          radius: ["70%", "80%"],
+          center: ["50%", "40%"],
           avoidLabelOverlap: false,
           label: {
             normal: {
@@ -50,11 +51,23 @@ const PieCharts = () => {
             }
           },
           data: [
-            { value: 335, name: "图书" },
-            { value: 310, name: "期刊" },
-            { value: 234, name: "会员论文" },
-            { value: 135, name: "学位论文" },
-            { value: 1548, name: "专利" }
+            {
+              value: 335,
+              name: "图书",
+              itemStyle: { color: "rgba(66,240,157,0.6)" }
+            },
+            {
+              value: 310,
+              name: "期刊",
+              itemStyle: { color: "rgba(80,174,255,0.6)" }
+            },
+            {
+              value: 234,
+              name: "会员论文",
+              itemStyle: { color: "rgba(221,215,116,0.6)" }
+            },
+            { value: 135, name: "学位论文", itemStyle: { color: "#FFF1F0FF" } },
+            { value: 1548, name: "专利", itemStyle: { color: "#FFFFBCA8" } }
           ]
         }
       ]
@@ -107,20 +120,26 @@ const PieCharts = () => {
           </div>
 
           <div className="table-num">
-            <div>
-              <span>中文</span>
-              <span>9631</span>
-              <span>96%</span>
+            <div className="table-single">
+              <span className="text-single">中文</span>
+              <span className="text-single">9631</span>
+              <span className="text-single">96%</span>
             </div>
-            <div>
-              <span>中文</span>
-              <span>9631</span>
-              <span>96%</span>
+            <div className="table-single">
+              <span className="text-single">中文</span>
+              <span className="text-single">9631</span>
+              <span className="text-single">96%</span>
             </div>
           </div>
         </div>
 
         <div id="pieArea" className="pie-area"></div>
+
+        <div className="pie-title">8月份文献传递量</div>
+        <div className="pie-center">
+          <div className="center-num">6604</div>
+          <div className="center-text">8月份文献传递量</div>
+        </div>
       </div>
     </div>
   );

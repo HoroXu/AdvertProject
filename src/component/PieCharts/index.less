@@ -3,9 +3,36 @@
   height: 29.125rem;
   background: url(../../assets/images/line-chart-bg.png) no-repeat center;
   background-size: 100% 100%;
+  position: relative;
+  .pie-title {
+    position: absolute;
+    font-size: 14px;
+    right: 112px;
+    font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+    font-weight: bold;
+    color: rgba(66, 240, 157, 1);
+  }
+  .pie-center {
+    position: absolute;
+    right: 114px;
+    top: 180px;
+    text-align: center;
+    .center-num {
+      font-size: 24px;
+      font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+      font-weight: bold;
+      color: rgba(50, 207, 255, 1);
+    }
+    .center-text {
+      font-size: 14px;
+      font-family: MicrosoftYaHei;
+      color: rgba(50, 207, 255, 1);
+    }
+  }
   .pie-area {
     width: 13rem;
     height: 18rem;
+    position: relative;
   }
 
   .pie-charts-title {
@@ -16,6 +43,8 @@
     color: rgba(50, 207, 255, 1);
   }
   .pie-charts-content {
+    padding-left: 1rem;
+    padding-right: 4rem;
     display: flex;
     justify-content: space-between;
     margin-top: 2.75rem;
@@ -75,6 +104,26 @@
           font-size: 14px;
           font-family: MicrosoftYaHei;
           color: rgba(50, 207, 255, 1);
+        }
+      }
+    }
+
+    .table-num {
+      margin-top: 0.625rem;
+      width: 22.5rem;
+      height: 4.5625rem;
+      background: url(../../assets/images/table-line.png) no-repeat center;
+      background-size: 100% 100%;
+      .table-single {
+        height: 2.3125rem;
+        line-height: 2.3125rem;
+        font-size: 14px;
+        font-family: MicrosoftYaHei;
+        color: rgba(50, 207, 255, 1);
+        .text-single {
+          display: inline-block;
+          width: 7.1875rem;
+          text-align: center;
         }
       }
     }
