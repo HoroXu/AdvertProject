@@ -1,8 +1,24 @@
 .home-page-area {
+  width: 120rem;
+  height: 67.5rem;
+  background-color: #04102d;
+  position: relative;
+  background: url(../../assets/images/bj.png) no-repeat center;
+  background-size: 100% 100%;
+
+  #canvas {
+    position: absolute;
     width: 120rem;
     height: 67.5rem;
-    background-color: #04102D;
-    .top-area {
-        display: flex;
-    }
+    // top: 50%;
+    // left: 50%;
+  }
+  .content-float {
+    z-index: 99;
+  }
+  .top-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.875rem;
+  }
 }
