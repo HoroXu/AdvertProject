@@ -101,7 +101,7 @@ const SingleLineCharts = () => {
           itemStyle: {
             normal: {
               color: "#42F09D",
-              // barBorderRadius: [12, 12, 0, 0],
+              barBorderRadius: [12, 12, 0, 0],
               borderColor: "rgba(50,207,255,0.4)",
               borderWidth: 1
             }

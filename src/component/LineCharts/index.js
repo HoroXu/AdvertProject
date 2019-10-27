@@ -141,14 +141,15 @@ const LineCharts = () => {
             normal: {
               show: true,
               position: [0, -15],
-              color: "rgba(50,207,255,1)"
+              color: "rgba(50,207,255,1)",
+    
             }
           },
 
           itemStyle: {
             normal: {
               color: "rgba(50, 207, 255, 0.05)",
-              // barBorderRadius: [12, 12, 12, 12],
+              barBorderRadius: [12, 12, 0, 0],
               borderColor: "rgba(50,207,255,0.4)",
               borderWidth: 1
             }

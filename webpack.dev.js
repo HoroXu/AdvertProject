@@ -25,7 +25,7 @@ module.exports = merge(common, {
         loader: "file-loader",
         options: {
           name: "images/[name].[ext]",
-          publicPath: "/project/"
+          publicPath: "/ffn-admin-web/project/"
           // publicPath:"../project/dsm/images/" //后台路径
         }
       }

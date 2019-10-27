@@ -19,7 +19,7 @@ const PieCharts = () => {
   const judgeColor = item => {
     switch (item) {
       case "图书":
-        return { color: "rgba(66,240,157,0.6)" };
+        return { color: "#42f09d" };
         break;
       case "期刊":
         return { color: "rgba(80,174,255,0.6)" };
@@ -38,28 +38,21 @@ const PieCharts = () => {
   const showReadRoom = () => {
     AxiosData.get("showLiterature.htm")
       .then(res => {
-        console.log(res);
         const { month, year } = res;
-
         setCountAll(month.countAllThroughput);
         setCountBook(month.countBookThroughput);
         setCountLiterature(month.countLiteratureThroughput);
         setYear(year);
-
         let arr1 = [];
         let arr2 = [];
-        let arr3 = [];
         for (let val of month.literatureDetail) {
-          console.log(val, "val=======");
           arr1.push({
             value: val.total,
             name: val.name,
             itemStyle: judgeColor(val.name)
           });
-
           arr2.push(val.name);
         }
-
         setLiteratureDetail(arr1);
         setItemName(arr2);
       })
@@ -75,7 +68,6 @@ const PieCharts = () => {
   useEffect(() => {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById("pieArea"));
-
     // 指定图表的配置项和数据
     var option = {
       tooltip: {
@@ -120,7 +112,6 @@ const PieCharts = () => {
         }
       ]
     };
-
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
   }, [itemName, literatureDetail]);
@@ -140,7 +131,6 @@ const PieCharts = () => {
                 <div className="num">{countBook.toLocaleString()}</div>
                 <div className="text">图书传递量</div>
               </div>
-
               <div className="single-num">
                 <div className="num">{countLiterature.toLocaleString()}</div>
                 <div className="text">其他文献传递量</div>
