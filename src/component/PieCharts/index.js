@@ -5,6 +5,7 @@ import AxiosData from "@/utils/axios";
 import Language from "../../assets/images/language.png";
 import Rate from "../../assets/images/rate.png";
 import Book from "../../assets/images/book.png";
+import moment from "moment";
 
 const PieCharts = () => {
   const [countAll, setCountAll] = useState(0);
@@ -129,7 +130,7 @@ const PieCharts = () => {
       <div className="pie-charts-content">
         <div className="num-content">
           <div className="month-num-area">
-            <div className="num-title">8月份文献传递量</div>
+            <div className="num-title">{moment().month()}月份文献传递量</div>
             <div className="month-num">
               <div className="single-num">
                 <div className="num">{countAll.toLocaleString()}</div>
@@ -183,10 +184,10 @@ const PieCharts = () => {
 
         <div id="pieArea" className="pie-area"></div>
 
-        <div className="pie-title">8月份文献传递量</div>
+        <div className="pie-title">{moment().month()}月份文献传递量</div>
         <div className="pie-center">
           <div className="center-num">6604</div>
-          <div className="center-text">8月份文献传递量</div>
+          <div className="center-text">{moment().month()}月份文献传递量</div>
         </div>
       </div>
     </div>

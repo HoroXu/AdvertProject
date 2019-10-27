@@ -8,24 +8,26 @@ const config = {
   grabCursor: true,
   centeredSlides: true,
   slidesPerView: "auto",
-  coverflowEffect: {
-    rotate: 50,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows: true
-  },
+  // coverflowEffect: {
+  //   rotate: 50,
+  //   stretch: 0,
+  //   depth: 100,
+  //   modifier: 1,
+  //   slideShadows: true
+  // },
   loop: true,
   autoplay: {
     delay: 3000,
     stopOnLastSlide: false,
     disableOnInteraction: true
+  },
+  coverflowEffect: {
+    rotate: 0, // 旋转的角度
+    stretch: 95, // 拉伸   图片间左右的间距和密集度
+    depth: 150, // 深度   切换图片间上下的间距和密集度
+    modifier: 4, // 修正值 该值越大前面的效果越明显
+    slideShadows: false // 页面阴影效果
   }
-  // // Disable preloading of all images
-  // preloadImages: false,
-  // // Enable lazy loading
-  // lazy: true,
-  // speed: 500
 };
 const WheelPlanting = () => {
   const [imgUrlArr, setImgUrlArr] = useState([]);
