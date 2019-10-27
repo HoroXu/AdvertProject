@@ -1,12 +1,52 @@
 import React, { Component, useState, useEffect } from "react";
 import echarts from "echarts";
+import AxiosData from "@/utils/axios";
 import "./index.less";
 
 const LineCharts = () => {
+  const [titleData, setTitleData] = useState([]);
+  const [totalData, setTotalData] = useState([]);
+  const [usedData, setUsedData] = useState([]);
+  const showReadRoom = () => {
+    AxiosData.get("showReadRoom.htm")
+      .then(res => {
+        console.log(res);
+
+        let arr1 = [];
+        let arr2 = [];
+        let arr3 = [];
+        for (let val of res) {
+          console.log(val, "val=======");
+          arr1.push({
+            value: val.name,
+            textStyle: {
+              color: "rgba(50,207,255,1)"
+            }
+          });
+
+          arr2.push(val.total);
+
+          arr3.push(val.total - val.useed);
+        }
+
+        setTitleData(arr1);
+        setTotalData(arr2);
+        setUsedData(arr3);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    showReadRoom();
+  }, []);
+
   useEffect(() => {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById("main"));
 
+    console.log(titleData, totalData, usedData), "=====";
     // 指定图表的配置项和数据
     var option = {
       title: {
@@ -28,7 +68,7 @@ const LineCharts = () => {
         itemWidth: 14,
         itemHeight: 14,
         borderRadius: 14,
-        
+
         icon: "circle",
         textStyle: {
           borderColor: "rgba(50,207,255,0.4)",
@@ -36,32 +76,7 @@ const LineCharts = () => {
         }
       },
       xAxis: {
-        data: [
-          {
-            value: "五菱多媒体\n阅览室",
-            textStyle: {
-              color: "rgba(50,207,255,1)"
-            }
-          },
-          {
-            value: "五菱多媒体\n阅览室",
-            textStyle: {
-              color: "rgba(50,207,255,1)"
-            }
-          },
-          {
-            value: "五菱多媒体\n阅览室",
-            textStyle: {
-              color: "rgba(50,207,255,1)"
-            }
-          },
-          {
-            value: "五菱多媒体\n阅览室",
-            textStyle: {
-              color: "rgba(50,207,255,1)"
-            }
-          }
-        ],
+        data: titleData,
         splitLine: {
           show: false
         },
@@ -112,10 +127,10 @@ const LineCharts = () => {
             normal: {
               show: true,
               position: [0, -15],
-              color:'rgba(50,207,255,1)'
+              color: "rgba(50,207,255,1)"
             }
           },
-          data: [320, 302, 301, 334, 390]
+          data: totalData
         },
         {
           name: "剩余",
@@ -126,7 +141,7 @@ const LineCharts = () => {
             normal: {
               show: true,
               position: [0, -15],
-              color:'rgba(50,207,255,1)'
+              color: "rgba(50,207,255,1)"
             }
           },
 
@@ -138,14 +153,14 @@ const LineCharts = () => {
               borderWidth: 1
             }
           },
-          data: [120, 132, 101, 134, 90]
+          data: usedData
         }
       ]
     };
 
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
-  }, []);
+  }, [titleData, totalData, usedData]);
   return <div className="line-charts-area" id="main"></div>;
 };
 

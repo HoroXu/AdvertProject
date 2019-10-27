@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState, useRef } from "react";
 import "./index.less";
+import AxiosData from "@/utils/axios";
 import AwesomeSwiper from "react-awesome-swiper";
-import Img1 from "../../assets/images/timg.jpg";
-import Img2 from "../../assets/images/timg1.jpg";
-import Img3 from "../../assets/images/timg3.jpg";
 
 const config = {
   effect: "coverflow",
@@ -22,45 +20,49 @@ const config = {
     delay: 3000,
     stopOnLastSlide: false,
     disableOnInteraction: true
-  },
+  }
   // // Disable preloading of all images
   // preloadImages: false,
   // // Enable lazy loading
   // lazy: true,
   // speed: 500
 };
-export default class WheelPlanting extends Component {
-  render() {
-    return (
-      <div className="recommend-area">
-        <div className="recommend-title">今日推荐</div>
-        <AwesomeSwiper
-          ref={ref => (this.swiperRef = ref)}
-          config={config}
-          className="recommend-imgs"
-        >
-          <div className="swiper-wrapper">
-            <div className="swiper-slide">
-              <img src={Img1} />
-            </div>
-            <div className="swiper-slide">
-              <img src={Img2} />
-            </div>
-            <div className="swiper-slide">
-              <img src={Img3} />
-            </div>
-          </div>
+const WheelPlanting = () => {
+  const [imgUrlArr, setImgUrlArr] = useState([]);
 
-          {/* <div className="swiper-pagination"></div> */}
-        </AwesomeSwiper>
+  const swiperRef = useRef(null);
+  useEffect(() => {
+    AxiosData.get("showRecommend.htm")
+      .then(res => {
+        // console.log(res);
+        setImgUrlArr(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
+  return (
+    <div className="recommend-area">
+      <div className="recommend-title">今日推荐</div>
+      <AwesomeSwiper
+        // ref={ref => (this.swiperRef = ref)}
 
-        {/* <div className='position-left'>
-
+        ref={swiperRef}
+        config={config}
+        className="recommend-imgs"
+      >
+        <div className="swiper-wrapper">
+          {imgUrlArr.map((item, index) => {
+            return (
+              <div className="swiper-slide">
+                <img src={item.imgURL} />
+              </div>
+            );
+          })}
         </div>
-        <div className='position-right'>
+      </AwesomeSwiper>
+    </div>
+  );
+};
 
-</div> */}
-      </div>
-    );
-  }
-}
+export default WheelPlanting;

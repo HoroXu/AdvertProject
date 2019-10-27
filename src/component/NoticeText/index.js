@@ -1,18 +1,33 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
+import AxiosData from "@/utils/axios";
+
 import "./index.less";
 
-export default class NoticeText extends Component {
-  render() {
-    return (
-      <div className="notice-text-area">
-        <div className="notice-text-title">最新通知</div>
-        <div className="notice-text-content">
-          <div className="content-title">关于图书馆借书说明</div>
-          <div className='content-content'>
-            内容内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域区域
-          </div>
+const NoticeText = () => {
+
+  const [noticeText,setNoticeText] = useState([])
+  useEffect(() => {
+    AxiosData.get("showNotice.htm")
+      .then(res => {
+        setNoticeText(res)
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
+
+
+  return (
+    <div className="notice-text-area">
+      <div className="notice-text-title">最新通知</div>
+      <div className="notice-text-content">
+        <div className="content-title">{noticeText.title}</div>
+        <div className="content-content">
+          {noticeText.content}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default NoticeText;
