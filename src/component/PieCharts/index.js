@@ -22,16 +22,16 @@ const PieCharts = () => {
         return { color: "#42f09d" };
         break;
       case "期刊":
-        return { color: "rgba(80,174,255,0.6)" };
+        return { color: "#9950AEFF" };
         break;
       case "会员论文":
-        return { color: "rgba(221,215,116,0.6)" };
+        return { color: "#99DDD774" };
         break;
       case "学位论文":
-        return { color: "#FFF1F0FF" };
+        return { color: "#99B7B4FF" };
         break;
       case "专利":
-        return { color: "#FFFFBCA8" };
+        return { color: "#99FFAD94" };
         break;
     }
   };

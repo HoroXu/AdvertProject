@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import echarts from "echarts";
+import moment from "moment";
 import "./index.less";
 
 const SingleLineCharts = () => {
@@ -9,15 +10,15 @@ const SingleLineCharts = () => {
 
     // 指定图表的配置项和数据
     var option = {
-      title: {
-        text: "学院借阅排行",
-        left: 10,
-        top: 10,
-        textStyle: {
-          color: "rgba(50,207,255,1)",
-          fontSize: 24
-        }
-      },
+      // title: {
+      //   text: "学院借阅排行",
+      //   left: 10,
+      //   top: 15,
+      //   textStyle: {
+      //     color: "rgba(50,207,255,1)",
+      //     fontSize: 24
+      //   }
+      // },
       color: ["#32CFFF", "#2f4554"],
       tooltip: {},
       xAxis: {
@@ -121,7 +122,15 @@ const SingleLineCharts = () => {
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
   }, []);
-  return <div className="single-line-charts-area" id="singleLineCharts"></div>;
+  return (
+    <div className="single-line-charts-area">
+      <div className="left-title">阅览室使用情况</div>
+      <div className="right-title">
+        {moment().format("YYYY年MM月DD日")}起借阅册数
+      </div>
+      <div id="singleLineCharts"></div>
+    </div>
+  );
 };
 
 export default SingleLineCharts;

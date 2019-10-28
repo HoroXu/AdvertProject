@@ -10,8 +10,6 @@ const LineCharts = () => {
   const showReadRoom = () => {
     AxiosData.get("showReadRoom.htm")
       .then(res => {
-        console.log(res);
-
         let arr1 = [];
         let arr2 = [];
         let arr3 = [];
@@ -23,12 +21,9 @@ const LineCharts = () => {
               color: "rgba(50,207,255,1)"
             }
           });
-
           arr2.push(val.total);
-
           arr3.push(val.total - val.useed);
         }
-
         setTitleData(arr1);
         setTotalData(arr2);
         setUsedData(arr3);
@@ -49,32 +44,31 @@ const LineCharts = () => {
     console.log(titleData, totalData, usedData), "=====";
     // 指定图表的配置项和数据
     var option = {
-      title: {
-        text: "阅览室使用情况",
-        left: 10,
-        top: 10,
-        textStyle: {
-          color: "rgba(50,207,255,1)",
-          fontSize: 24
-        }
-      },
+      // title: {
+      //   text: "阅览室使用情况",
+      //   left: 10,
+      //   top: 0,
+      //   textStyle: {
+      //     color: "rgba(50,207,255,1)",
+      //     fontSize: 24
+      //   }
+      // },
       color: ["#32CFFF", "#2f4554"],
       tooltip: {},
-      legend: {
-        data: ["已使用", "剩余"],
-        align: "right",
-        right: 10,
-        top: 10,
-        itemWidth: 14,
-        itemHeight: 14,
-        borderRadius: 14,
-
-        icon: "circle",
-        textStyle: {
-          borderColor: "rgba(50,207,255,0.4)",
-          color: "rgba(50,207,255,1)"
-        }
-      },
+      // legend: {
+      //   data: ["已使用", "剩余"],
+      //   align: "right",
+      //   right: 10,
+      //   top: 10,
+      //   itemWidth: 14,
+      //   itemHeight: 14,
+      //   borderRadius: 14,
+      //   icon: "circle",
+      //   textStyle: {
+      //     borderColor: "rgba(50,207,255,0.4)",
+      //     color: "rgba(50,207,255,1)"
+      //   }
+      // },
       xAxis: {
         data: titleData,
         splitLine: {
@@ -141,11 +135,9 @@ const LineCharts = () => {
             normal: {
               show: true,
               position: [0, -15],
-              color: "rgba(50,207,255,1)",
-    
+              color: "rgba(50,207,255,1)"
             }
           },
-
           itemStyle: {
             normal: {
               color: "rgba(50, 207, 255, 0.05)",
@@ -158,11 +150,21 @@ const LineCharts = () => {
         }
       ]
     };
-
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
   }, [titleData, totalData, usedData]);
-  return <div className="line-charts-area" id="main"></div>;
+  return (
+    <div className="line-charts-area">
+      <div className="left-title">阅览室使用情况</div>
+      <div className="right-title">
+        <span className=" cicle cicle-done"></span>
+        <span className="text done">已使用</span>
+        <span className="cicle cicle-unused"></span>
+        <span className="text unused">剩余</span>
+      </div>
+      <div id="main"></div>
+    </div>
+  );
 };
 
 export default LineCharts;
