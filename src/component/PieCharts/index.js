@@ -19,19 +19,19 @@ const PieCharts = () => {
   const judgeColor = item => {
     switch (item) {
       case "图书":
-        return { color: "#42f09d" };
+        return { color: "rgba(51, 185, 146, 1)" };
         break;
       case "期刊":
-        return { color: "#9950AEFF" };
+        return { color: "rgba(7, 112, 211, 1)" };
         break;
       case "会员论文":
-        return { color: "#99DDD774" };
+        return { color: "rgba(168, 116, 28, 1)" };
         break;
       case "学位论文":
-        return { color: "#99B7B4FF" };
+        return { color: "rgba(166, 12, 180, 1)" };
         break;
       case "专利":
-        return { color: "#99FFAD94" };
+        return { color: "rgba(180, 160, 12, 1)" };
         break;
     }
   };

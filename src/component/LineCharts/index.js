@@ -40,8 +40,6 @@ const LineCharts = () => {
   useEffect(() => {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById("main"));
-
-    console.log(titleData, totalData, usedData), "=====";
     // 指定图表的配置项和数据
     var option = {
       // title: {
@@ -113,15 +111,15 @@ const LineCharts = () => {
             normal: {
               color: "#42F09D",
               // barBorderRadius: [12, 12, 0, 0],
-              borderColor: "rgba(50,207,255,0.4)",
+              borderColor: "rgba(51, 185, 146, 1)",
               borderWidth: 1
             }
           },
           label: {
             normal: {
               show: true,
-              position: [0, -15],
-              color: "rgba(50,207,255,1)"
+              position: [3, -15],
+              color: "rgba(50, 207, 255, 1)"
             }
           },
           data: totalData
@@ -134,15 +132,15 @@ const LineCharts = () => {
           label: {
             normal: {
               show: true,
-              position: [0, -15],
+              position: [3, -15],
               color: "rgba(50,207,255,1)"
             }
           },
           itemStyle: {
             normal: {
-              color: "rgba(50, 207, 255, 0.05)",
+              color: "rgba(8,42,76,1)",
               barBorderRadius: [12, 12, 0, 0],
-              borderColor: "rgba(50,207,255,0.4)",
+              borderColor: "rgba(31,136,179,1)",
               borderWidth: 1
             }
           },
