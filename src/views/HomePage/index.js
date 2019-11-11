@@ -6,7 +6,7 @@ import PieCharts from "@/component/PieCharts";
 import Recommend from "@/component/Recommend";
 import WheelPlanting from "@/component/WheelPlanting";
 import SingleLineCharts from "@/component/SingleLineCharts";
-import AxiosData from '@/utils/axios'
+import AxiosData from "@/utils/axios";
 
 import "./index.less";
 
@@ -21,7 +21,7 @@ const HomePage = () => {
       </div>
       <div className="top-area">
         <SingleLineCharts />
-        <PieCharts />
+        {/* <PieCharts /> */}
         <Recommend />
       </div>
     </div>

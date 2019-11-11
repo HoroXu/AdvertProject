@@ -33,42 +33,57 @@ const LineCharts = () => {
       });
   };
 
-  useEffect(() => {
-    showReadRoom();
-  }, []);
+  // useEffect(() => {
+  //   showReadRoom();
+  // }, []);
 
   useEffect(() => {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById("main"));
     // 指定图表的配置项和数据
     var option = {
-      // title: {
-      //   text: "阅览室使用情况",
-      //   left: 10,
-      //   top: 0,
-      //   textStyle: {
-      //     color: "rgba(50,207,255,1)",
-      //     fontSize: 24
-      //   }
-      // },
-      color: ["#32CFFF", "#2f4554"],
-      tooltip: {},
       // legend: {
-      //   data: ["已使用", "剩余"],
-      //   align: "right",
-      //   right: 10,
-      //   top: 10,
-      //   itemWidth: 14,
-      //   itemHeight: 14,
-      //   borderRadius: 14,
-      //   icon: "circle",
-      //   textStyle: {
-      //     borderColor: "rgba(50,207,255,0.4)",
-      //     color: "rgba(50,207,255,1)"
-      //   }
+      //   data: ["点击量", "下载量"]
       // },
+      title: {
+        show: false
+      },
+      tooltip: {},
       xAxis: {
-        data: titleData,
+        type: "category",
+        data: [
+          {
+            value: "知网",
+            textStyle: {
+              color: "rgba(50,207,255,1)"
+            }
+          },
+          {
+            value: "万方",
+            textStyle: {
+              color: "rgba(50,207,255,1)"
+            }
+          },
+          {
+            value: "PubMed",
+            textStyle: {
+              color: "rgba(50,207,255,1)"
+            }
+          },
+          {
+            value: "维普",
+            textStyle: {
+              color: "rgba(50,207,255,1)"
+            }
+          },
+          {
+            value: "Walnut Brownie",
+            textStyle: {
+              color: "rgba(50,207,255,1)"
+            }
+          }
+        ],
+
         splitLine: {
           show: false
         },
@@ -81,6 +96,7 @@ const LineCharts = () => {
         // axisLabel: {
         //   show: false
         // },
+
         nameTextStyle: {
           color: "rgba(50,207,255,1)",
           fontSize: 14,
@@ -101,64 +117,40 @@ const LineCharts = () => {
           show: false
         }
       },
-
       series: [
         {
-          name: "已使用",
+          name: "点击量",
           type: "bar",
-          stack: "总量",
           itemStyle: {
             normal: {
-              color: "#42F09D",
-              // barBorderRadius: [12, 12, 0, 0],
-              borderColor: "rgba(51, 185, 146, 1)",
-              borderWidth: 1
+              color: "rgba(51, 185, 146, 1)"
             }
           },
-          label: {
-            normal: {
-              show: true,
-              position: [3, -15],
-              color: "rgba(50, 207, 255, 1)"
-            }
-          },
-          data: totalData
+          data: [320, 332, 301, 334, 390]
         },
         {
-          name: "剩余",
           type: "bar",
-          stack: "总量",
-          barWidth: 20,
-          label: {
-            normal: {
-              show: true,
-              position: [3, -15],
-              color: "rgba(50,207,255,1)"
-            }
-          },
+          name: "下载量",
           itemStyle: {
             normal: {
-              color: "rgba(8,42,76,1)",
-              barBorderRadius: [12, 12, 0, 0],
-              borderColor: "rgba(31,136,179,1)",
-              borderWidth: 1
+              color: "rgba(7, 112, 211, 1)"
             }
           },
-          data: usedData
+          data: [320, 332, 301, 334, 390]
         }
       ]
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
-  }, [titleData, totalData, usedData]);
+  }, []);
   return (
     <div className="line-charts-area">
       <div className="left-title">阅览室使用情况</div>
       <div className="right-title">
         <span className=" cicle cicle-done"></span>
-        <span className="text done">已使用</span>
+        <span className="text done">点击量</span>
         <span className="cicle cicle-unused"></span>
-        <span className="text unused">剩余</span>
+        <span className="text unused">下载量</span>
       </div>
       <div id="main"></div>
     </div>

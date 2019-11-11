@@ -81,7 +81,10 @@ const PieCharts = () => {
         itemWidth: 14,
         itemHeight: 14,
         borderRadius: 14,
-        icon: "circle"
+        icon: "circle",
+        textStyle: {
+          color: "rgba(50,207,255,1)"
+        }
       },
       series: [
         {
@@ -121,7 +124,7 @@ const PieCharts = () => {
       <div className="pie-charts-content">
         <div className="num-content">
           <div className="month-num-area">
-            <div className="num-title">{moment().month()}月份文献传递量</div>
+            <div className="num-title">{moment().month()+1}月份文献传递量</div>
             <div className="month-num">
               <div className="single-num">
                 <div className="num">{countAll.toLocaleString()}</div>
@@ -174,10 +177,10 @@ const PieCharts = () => {
 
         <div id="pieArea" className="pie-area"></div>
 
-        <div className="pie-title">{moment().month()}月份文献传递量</div>
+        <div className="pie-title">{moment().month()+1}月份文献传递量</div>
         <div className="pie-center">
           <div className="center-num">6604</div>
-          <div className="center-text">{moment().month()}月份文献传递量</div>
+          <div className="center-text">{moment().month()+1}月份文献传递量</div>
         </div>
       </div>
     </div>
