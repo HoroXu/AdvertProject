@@ -1,65 +1,97 @@
 import React, { Component, useState, useEffect } from "react";
 import echarts from "echarts";
 import moment from "moment";
+import AxiosData from "@/utils/axios";
 import "./index.less";
 
 const SingleLineCharts = () => {
+  const [titleData, setTitleData] = useState([]);
+  const [sciTotal, setSciTotal] = useState([]);
+  const [coreTotal, setCoreTotal] = useState([]);
+  const [allTotal, setAllTotal] = useState([]);
+  const showDispatch = () => {
+    AxiosData.get("showDispatch.htm")
+      .then(res => {
+        let arr1 = [];
+        let arr2 = [];
+        let arr3 = [];
+        let arr4 = [];
+        for (let val of res) {
+          console.log(res, "val=======");
+          arr1.push({
+            value: val.labelName,
+            textStyle: {
+              color: "rgba(50,207,255,1)"
+            }
+          });
+          arr2.push(val.sciTotal);
+          arr3.push(val.coreTotal);
+
+          arr4.push(val.allTotal);
+        }
+
+        setTitleData(arr1);
+        setSciTotal(arr2);
+        setCoreTotal(arr3);
+        setAllTotal(arr4);
+
+        console.log(arr1, "arr1数组======");
+      })
+
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    showDispatch();
+  }, []);
+
   useEffect(() => {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById("singleLineCharts"));
 
     // 指定图表的配置项和数据
     var option = {
-      // title: {
-      //   text: "学院借阅排行",
-      //   left: 10,
-      //   top: 15,
-      //   textStyle: {
-      //     color: "rgba(50,207,255,1)",
-      //     fontSize: 24
-      //   }
-      // },
-      color: ["#32CFFF", "#2f4554"],
+      title: {
+        show: false
+      },
       tooltip: {},
       xAxis: {
-        data: [
-          {
-            value: "中药学院",
-            textStyle: {
-              color: "rgba(50,207,255,1)"
-            }
-          },
-          {
-            value: "护理学院",
-            textStyle: {
-              color: "rgba(50,207,255,1)"
-            }
-          },
-          {
-            value: "护理学院",
-            textStyle: {
-              color: "rgba(50,207,255,1)"
-            }
-          },
-          {
-            value: "护理学院",
-            textStyle: {
-              color: "rgba(50,207,255,1)"
-            }
-          },
-          {
-            value: "公共健康学院",
-            textStyle: {
-              color: "rgba(50,207,255,1)"
-            }
-          },
-          {
-            value: "公共健康学院",
-            textStyle: {
-              color: "rgba(50,207,255,1)"
-            }
-          }
-        ],
+        type: "category",
+        // data: [
+        //   {
+        //     value: "知网",
+        //     textStyle: {
+        //       color: "rgba(50,207,255,1)"
+        //     }
+        //   },
+        //   {
+        //     value: "万方",
+        //     textStyle: {
+        //       color: "rgba(50,207,255,1)"
+        //     }
+        //   },
+        //   {
+        //     value: "PubMed",
+        //     textStyle: {
+        //       color: "rgba(50,207,255,1)"
+        //     }
+        //   },
+        //   {
+        //     value: "维普",
+        //     textStyle: {
+        //       color: "rgba(50,207,255,1)"
+        //     }
+        //   },
+        //   {
+        //     value: "Walnut\nBrownie",
+        //     textStyle: {
+        //       color: "rgba(50,207,255,1)"
+        //     }
+        //   }
+        // ],
+        data: titleData,
         splitLine: {
           show: false
         },
@@ -69,9 +101,11 @@ const SingleLineCharts = () => {
         axisLine: {
           show: false
         },
-        // axisLabel: {
-        //   show: false
-        // },
+        //   axisLabel: {
+        //     interval:0,
+        //     rotate:40
+        //  }  ,
+
         nameTextStyle: {
           color: "rgba(50,207,255,1)",
           fontSize: 14,
@@ -92,39 +126,47 @@ const SingleLineCharts = () => {
           show: false
         }
       },
-
       series: [
         {
-          name: "已使用",
+          name: "SCI发文量",
           type: "bar",
-          stack: "总量",
-          barWidth: 20,
           itemStyle: {
             normal: {
-              color: "#42F09D",
-              barBorderRadius: [12, 12, 0, 0],
-              borderColor: "rgba(50,207,255,0.4)",
-              borderWidth: 1
+              color: "rgba(51, 185, 146, 1)"
             }
           },
-          label: {
+          data: sciTotal
+        },
+        {
+          type: "bar",
+          name: "核心期刊发文量",
+          itemStyle: {
             normal: {
-              show: true,
-              position: [0, -15],
-              color: "rgba(50,207,255,1)"
+              color: "rgba(180, 160, 12, 1)"
             }
           },
-          data: [320, 302, 301, 334, 390, 13]
+          data: coreTotal
+        },
+        {
+          type: "bar",
+          name: "发文总数",
+          itemStyle: {
+            normal: {
+              color: "rgba(7, 112, 211, 1)"
+            }
+          },
+          elmphasis: { barWidth: 5 },
+          data: allTotal
         }
       ]
     };
 
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
-  }, []);
+  }, [titleData.length, sciTotal, coreTotal, allTotal]);
   return (
     <div className="single-line-charts-area">
-      <div className="left-title">阅览室使用情况</div>
+      <div className="left-title">科室文献发文统计(季度)</div>
       <div className="right-title">
         {moment().format("YYYY年MM月DD日")}起借阅册数
       </div>

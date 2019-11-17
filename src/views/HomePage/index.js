@@ -21,7 +21,7 @@ const HomePage = () => {
       </div>
       <div className="top-area">
         <SingleLineCharts />
-        {/* <PieCharts /> */}
+        <PieCharts />
         <Recommend />
       </div>
     </div>

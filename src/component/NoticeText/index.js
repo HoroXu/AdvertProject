@@ -20,7 +20,10 @@ const NoticeText = () => {
       <div className="notice-text-title">最新通知</div>
       <div className="content-title">{noticeText.title}</div>
       <div className="notice-text-content">
-        <div className="content-content animate">{noticeText.content}</div>
+        <div
+          className="content-content animate"
+          dangerouslySetInnerHTML={{ __html: noticeText.content }}
+        ></div>
       </div>
     </div>
   );
