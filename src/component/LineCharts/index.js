@@ -144,8 +144,6 @@ const LineCharts = () => {
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
   }, [titleData.length, totalData.length, usedData.length]);
-
-  // console.log(titleData, titleData.length, "titleData======");
   return (
     <div className="line-charts-area">
       <div className="left-title">中外文期刊数据使用情况</div>

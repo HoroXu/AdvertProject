@@ -1,4 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
+import AxiosData from "@/utils/axios";
 import moment from "moment";
 import "./index.less";
 
@@ -21,10 +22,24 @@ const TopTitle = () => {
         return "星期ri";
     }
   };
+
+  const [title, setTitle] = useState("");
+
+  useEffect(() => {
+    AxiosData.get('showLogo.htm')
+      .then(res => {
+        setTitle(res.title);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div className="top-title-area">
-      <div className="top-left">今日借书  {moment().format("MM月DD日")} 前归还</div>
-      <div className="top-mid">南京鼓楼医院图书馆大数据综合展示平台</div>
+      <div className="top-left">
+        今日借书 {moment().format("MM月DD日")} 前归还
+      </div>
+      <div className="top-mid">{title}</div>
       <div className="top-right">
         {moment().format("YYYY-MM-DD HH:mm")} {judgeWeek(moment().days())}
       </div>

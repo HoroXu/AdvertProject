@@ -19,14 +19,13 @@ const SingleLineCharts = () => {
         for (let val of res) {
           console.log(res, "val=======");
           arr1.push({
-            value: val.labelName,
+            value: `${val.labelName.slice(0, 4)}\n${val.labelName.slice(3, 6)}`,
             textStyle: {
               color: "rgba(50,207,255,1)"
             }
           });
           arr2.push(val.sciTotal);
           arr3.push(val.coreTotal);
-
           arr4.push(val.allTotal);
         }
 
@@ -56,41 +55,12 @@ const SingleLineCharts = () => {
       title: {
         show: false
       },
+      legend: {
+        data: titleData
+      },
       tooltip: {},
       xAxis: {
         type: "category",
-        // data: [
-        //   {
-        //     value: "知网",
-        //     textStyle: {
-        //       color: "rgba(50,207,255,1)"
-        //     }
-        //   },
-        //   {
-        //     value: "万方",
-        //     textStyle: {
-        //       color: "rgba(50,207,255,1)"
-        //     }
-        //   },
-        //   {
-        //     value: "PubMed",
-        //     textStyle: {
-        //       color: "rgba(50,207,255,1)"
-        //     }
-        //   },
-        //   {
-        //     value: "维普",
-        //     textStyle: {
-        //       color: "rgba(50,207,255,1)"
-        //     }
-        //   },
-        //   {
-        //     value: "Walnut\nBrownie",
-        //     textStyle: {
-        //       color: "rgba(50,207,255,1)"
-        //     }
-        //   }
-        // ],
         data: titleData,
         splitLine: {
           show: false
@@ -167,9 +137,7 @@ const SingleLineCharts = () => {
   return (
     <div className="single-line-charts-area">
       <div className="left-title">科室文献发文统计(季度)</div>
-      <div className="right-title">
-        {moment().format("YYYY年MM月DD日")}起借阅册数
-      </div>
+      <div className="right-title">云平台使用情况</div>
       <div id="singleLineCharts"></div>
     </div>
   );
