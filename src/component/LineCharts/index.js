@@ -14,7 +14,6 @@ const LineCharts = () => {
         let arr2 = [];
         let arr3 = [];
         for (let val of res) {
-      
           arr1.push({
             value: val.labelName,
             textStyle: {
@@ -49,41 +48,12 @@ const LineCharts = () => {
       title: {
         show: false
       },
-      tooltip: {},
+      legend: {
+        data: titleData
+      },
+      tooltip: { trigger: "axis", axisPointer: { type: "none" } },
       xAxis: {
         type: "category",
-        // data: [
-        //   {
-        //     value: "知网",
-        //     textStyle: {
-        //       color: "rgba(50,207,255,1)"
-        //     }
-        //   },
-        //   {
-        //     value: "万方",
-        //     textStyle: {
-        //       color: "rgba(50,207,255,1)"
-        //     }
-        //   },
-        //   {
-        //     value: "PubMed",
-        //     textStyle: {
-        //       color: "rgba(50,207,255,1)"
-        //     }
-        //   },
-        //   {
-        //     value: "维普",
-        //     textStyle: {
-        //       color: "rgba(50,207,255,1)"
-        //     }
-        //   },
-        //   {
-        //     value: "Walnut\nBrownie",
-        //     textStyle: {
-        //       color: "rgba(50,207,255,1)"
-        //     }
-        //   }
-        // ],
         data: titleData,
         splitLine: {
           show: false
@@ -137,12 +107,14 @@ const LineCharts = () => {
               color: "rgba(7, 112, 211, 1)"
             }
           },
+
           data: usedData
         }
       ]
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
+    tools.loopShowTooltip(myChart, option, { loopSeries: true });
   }, [titleData.length, totalData.length, usedData.length]);
   return (
     <div className="line-charts-area">

@@ -58,7 +58,7 @@ const SingleLineCharts = () => {
       legend: {
         data: titleData
       },
-      tooltip: {},
+      tooltip: { trigger: "axis", axisPointer: { type: "none" } },
       xAxis: {
         type: "category",
         data: titleData,
@@ -133,11 +133,22 @@ const SingleLineCharts = () => {
 
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
+    tools.loopShowTooltip(myChart, option, { loopSeries: true });
   }, [titleData.length, sciTotal, coreTotal, allTotal]);
   return (
     <div className="single-line-charts-area">
       <div className="left-title">科室文献发文统计(季度)</div>
-      <div className="right-title">云平台使用情况</div>
+      {/* <div className="right-title">
+        <span>云平台使用情况</span>
+      </div> */}
+      <div className="circle-area">
+        <span className=" cicle cicle1"></span>
+        <span className="text done">SCI</span>
+        <span className="cicle cicle2"></span>
+        <span className="text unused">核心期刊</span>
+        <span className="cicle cicle3"></span>
+        <span className="text unused">发文总数</span>
+      </div>
       <div id="singleLineCharts"></div>
     </div>
   );

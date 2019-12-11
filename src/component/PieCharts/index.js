@@ -212,20 +212,20 @@ const PieCharts = () => {
           </div>
 
           <div className="year-num-area">
-            <div className="num-title">本年文献传递量</div>
+            <div className="num-title">云平台使用情况</div>
             <div className="year-num">
               <div className="single-num">
                 <img src={Language} />
                 <div className="text">终端</div>
               </div>
-              <div className="single-num">
-                <img src={Book} />
-                <div className="text">登录次数</div>
-              </div>
 
               <div className="single-num">
                 <img src={Rate} />
                 <div className="text">注册人数</div>
+              </div>
+              <div className="single-num">
+                <img src={Book} />
+                <div className="text">登录次数</div>
               </div>
             </div>
           </div>
