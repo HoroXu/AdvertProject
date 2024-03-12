@@ -1,6 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
 import AxiosData from "@/utils/axios";
-
 import "./index.less";
 
 const NoticeText = () => {
