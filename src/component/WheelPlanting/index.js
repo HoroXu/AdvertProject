@@ -49,8 +49,6 @@ const WheelPlanting = () => {
             );
           })}
         </div>
-
-        {/* <div className="swiper-pagination"></div> */}
       </AwesomeSwiper>
     </div>
   );
