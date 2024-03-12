@@ -2,7 +2,6 @@ import React, { Component, useState, useEffect } from "react";
 import echarts from "echarts";
 import AxiosData from "@/utils/axios";
 import "./index.less";
-
 const LineCharts = () => {
   const [titleData, setTitleData] = useState([]);
   const [totalData, setTotalData] = useState([]);
@@ -62,9 +61,6 @@ const LineCharts = () => {
         axisLine: {
           show: false,
         },
-        // axisLabel: {
-        //   show: false
-        // },
 
         nameTextStyle: {
           color: "rgba(50,207,255,1)",
