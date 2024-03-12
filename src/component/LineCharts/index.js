@@ -9,7 +9,7 @@ const LineCharts = () => {
   const [usedData, setUsedData] = useState([]);
   const showPeriodical = () => {
     AxiosData.get("showPeriodical.htm")
-      .then(res => {
+      .then((res) => {
         let arr1 = [];
         let arr2 = [];
         let arr3 = [];
@@ -17,8 +17,8 @@ const LineCharts = () => {
           arr1.push({
             value: val.labelName,
             textStyle: {
-              color: "rgba(50,207,255,1)"
-            }
+              color: "rgba(50,207,255,1)",
+            },
           });
           arr2.push(val.clickTotal);
           arr3.push(val.downLoadTotal);
@@ -28,7 +28,7 @@ const LineCharts = () => {
         setUsedData(arr3);
       })
 
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
@@ -44,23 +44,23 @@ const LineCharts = () => {
     // 指定图表的配置项和数据
     var option = {
       title: {
-        show: false
+        show: false,
       },
       legend: {
-        data: titleData
+        data: titleData,
       },
       tooltip: { trigger: "axis", axisPointer: { type: "none" } },
       xAxis: {
         type: "category",
         data: titleData,
         splitLine: {
-          show: false
+          show: false,
         },
         axisTick: {
-          show: false
+          show: false,
         },
         axisLine: {
-          show: false
+          show: false,
         },
         // axisLabel: {
         //   show: false
@@ -69,22 +69,22 @@ const LineCharts = () => {
         nameTextStyle: {
           color: "rgba(50,207,255,1)",
           fontSize: 14,
-          width: 20
-        }
+          width: 20,
+        },
       },
       yAxis: {
         splitLine: {
-          show: false
+          show: false,
         },
         axisTick: {
-          show: false
+          show: false,
         },
         axisLine: {
-          show: false
+          show: false,
         },
         axisLabel: {
-          show: false
-        }
+          show: false,
+        },
       },
       series: [
         {
@@ -92,23 +92,23 @@ const LineCharts = () => {
           type: "bar",
           itemStyle: {
             normal: {
-              color: "rgba(51, 185, 146, 1)"
-            }
+              color: "rgba(51, 185, 146, 1)",
+            },
           },
-          data: totalData
+          data: totalData,
         },
         {
           type: "bar",
           name: "下载量",
           itemStyle: {
             normal: {
-              color: "rgba(7, 112, 211, 1)"
-            }
+              color: "rgba(7, 112, 211, 1)",
+            },
           },
 
-          data: usedData
-        }
-      ]
+          data: usedData,
+        },
+      ],
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
