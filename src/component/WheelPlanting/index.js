@@ -26,7 +26,6 @@ const WheelPlanting = () => {
   useEffect(() => {
     AxiosData.get("showPresence.htm")
       .then(res => {
-        // console.log(res);
         setImgUrlArr(res);
       })
       .catch(err => {
