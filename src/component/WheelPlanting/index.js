@@ -37,8 +37,6 @@ const WheelPlanting = () => {
     <div className="wheel-planting-area">
       <div className="wheel-planting-title">本馆风采</div>
       <AwesomeSwiper
-        // ref={ref => (this.swiperRef = ref)}
-
         ref={swiperRef}
         config={config}
         className="wheel-planting-imgs"
