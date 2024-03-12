@@ -33,8 +33,6 @@ const SingleLineCharts = () => {
         setSciTotal(arr2);
         setCoreTotal(arr3);
         setAllTotal(arr4);
-
-        console.log(arr1, "arr1数组======");
       })
 
       .catch(err => {
