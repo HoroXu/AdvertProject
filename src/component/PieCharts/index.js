@@ -112,15 +112,6 @@ const PieCharts = () => {
           }
         ];
         let arr2 = ["图书量", "期刊", "会员论文", "学术论文量", "专利量"];
-
-        // for (let val of month.literatureDetail) {
-        //   arr1.push({
-        //     value: val.total,
-        //     name: val.name,
-        //     itemStyle: judgeColor(val.name)
-        //   });
-        //   arr2.push(val.name);
-        // }
         setLiteratureDetail(arr1);
         setItemName(arr2);
       })
