@@ -61,7 +61,6 @@ const LineCharts = () => {
         axisLine: {
           show: false,
         },
-
         nameTextStyle: {
           color: "rgba(50,207,255,1)",
           fontSize: 14,
