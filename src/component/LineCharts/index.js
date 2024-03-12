@@ -26,8 +26,6 @@ const LineCharts = () => {
         setTitleData(arr1);
         setTotalData(arr2);
         setUsedData(arr3);
-
-        console.log(arr1, arr2, "arr1数组======");
       })
 
       .catch(err => {
